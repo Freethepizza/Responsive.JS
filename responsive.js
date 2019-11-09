@@ -3,6 +3,8 @@ var currentWidth = window.innerWidth;
 var currentHeight = window.innerHeight;
 window.addEventListener("resize", main);
 
+window.addEventListener("deviceorientation", handleOrientation, true);
+
 const usable = ["disappear","resize"];
 
 var devices = {"iphone5":{"W":320,"H":568},"iphone6":{"W":375,"H":667},"iphone6plus":{"W":414,"H":736},"iphone7":{"W":320,"H":568},"iphone7plus":{"W":414,"H":736},"iphone8":{"W":375,"H":667},"iphone8plus":{"W":414,"H":736}};
@@ -80,5 +82,19 @@ function reduceHandler(item,attribute){
     }else{
         item.style.width = "";
     }
+}
+
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+    
+    document.getElementById("absolute").innerHTML="<h3>absolute: "+absolute+"</h3>";
+    document.getElementById("alpha").innerHTML="<h3>alpha: "+alpha+"</h3>";
+    document.getElementById("beta").innerHTML="<h3>beta: "+beta+"</h3>";
+    document.getElementById("gamma").innerHTML="<h3>gamma: "+gamma+"</h3>";
+
+
 }
 
