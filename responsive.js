@@ -94,6 +94,11 @@ function handleOrientation(event) {
     document.getElementById("alpha").innerHTML="<h3>alpha: "+alpha+"</h3>";
     document.getElementById("beta").innerHTML="<h3>beta: "+beta+"</h3>";
     document.getElementById("gamma").innerHTML="<h3>gamma: "+gamma+"</h3>";
+    
+    console.log(absolute);
+    console.log(alpha);
+    console.log(beta);
+    console.log(gamma);
 
 
 }
