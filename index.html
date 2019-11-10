@@ -14,7 +14,7 @@
         }
         .row{
             width: 100%;
-            
+
         }
         .container{
             width: 100%;
@@ -35,13 +35,30 @@
             width: 100%;
             float: left;
         }
-        
+
         .border{
             border: 1px solid #000;
             box-sizing: border-box;
             margin-bottom: 5px;
             height: 100px;
         }
+        .responsivejsbutton{
+           width: 100%;
+           border-top:none;
+           border-left:none;
+           border-right:none;
+           border-botton: 1px solid #000;
+           margin-bottom: 10px;
+           outline: 0 !important;
+        }
+        .hidden{
+          display: none;
+          height: 0px;
+        }
+
+        /*.responsivejsbutton:focus{
+          background-color: yellow;
+        }*/
     </style>
 </head>
 
@@ -67,9 +84,28 @@
           <div class="col-2 border" reduce="iphone678plus 100%">This is the first column-2</div>
           <div class="col-2 border" reduce="iphone678plus 100%">This is the second column-2</div>
       </div>
-      <div class="row">
+      <div class="row" toggle>
           <div class="col-1 border" reduce="iphone678plus 50%">This is first col-1</div>
           <div class="col-1 border" reduce="iphone678plus 50%">This is second col-1</div>
+      </div>
+      <div class="row">
+        <div class="col-1 border" toggle reduce="iphone678plus 50%">
+          This is a toggleable element 1
+        </div>
+        <div class="row">
+          <div class="col-1 border" toggle reduce="iphone678plus 50%">
+            This is a toggleable element 2
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-1 border" toggle reduce="iphone678plus 50%">
+            This is a toggleable element 3
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-1 border" toggle reduce="iphone678plus 50%">
+            This is a toggleable element 4
+          </div>
       </div>
   </div>
 </body>
