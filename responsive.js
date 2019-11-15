@@ -1,6 +1,6 @@
 window.addEventListener("load", main);
 window.addEventListener("load", toggleExecution);
-window.addEventListener("load", toggleHandler);
+window.addEventListener("load", modals);
 window.addEventListener("resize", main);
 
 
@@ -34,24 +34,22 @@ function getCurrentSize() {
 }
 
 function main() {
-    console.log(devices);
+
     /*disappear*/
     var disappearElements = $('[disappear]')
     if (disappearElements.length > 0) {
-        console.log("There's hidable elements: disappearElements.length > 0");
         disappear(disappearElements);
     }
     /*resize*/
     var resizeElements = $('[reduce]');
     if (resizeElements.length > 0) {
-        console.log("There's reduceable elements: resizeElements.length > 0");
         reduce(resizeElements);
     }
 }
 
 function disappear(items) {
     for(var i=0;i<items.length;i++){
-        console.log(items[i]);
+        
         //console.log(items[i].getAttribute('disappear'));
         var device = items[i].getAttribute('disappear');
         disappearHandler(items[i],device);
@@ -60,8 +58,6 @@ function disappear(items) {
 
 function disappearHandler(item, device){
     getCurrentSize();
-    console.log(currentWidth);
-    console.log();
 
     if(currentWidth <= window[device]){
         console.log(device);
@@ -80,7 +76,6 @@ function reduce(items) {
 
 function reduceHandler(item,attribute){
     getCurrentSize();
-    console.log(window[attribute[0]]);
     if(currentWidth <= window[attribute[0]]){
         item.style.width = attribute[1];
     }else{
@@ -91,73 +86,26 @@ function reduceHandler(item,attribute){
 function toggleExecution(){
   var toggleElements = $('[toggle]');
   if (toggleElements.length > 0) {
-    console.log("There's toggleable elements: ToggleElements.length > 0")
     toggle(toggleElements);
   }
 }
 
-
-/*function toggle(items){
-    var button
-    for (var i=0;i<items.length;i++){
-      button = document.createElement('button');
-      button.innerHTML = 'BUTTON BUTTON BUTTON';
-      button.className += 'responsivejsbutton';
-      items[i].insertAdjacentElement('beforebegin',button);
-      items[i].style.transition  = "0.5s";
-      items[i].style.display  = "none";
-    }
-    toggleHandler(items);
-}
-
-function toggleHandler(hiddenitem){
-  var timesclicked = 0;
-  var button = document.getElementsByClassName("responsivejsbutton");
-    for(var i = 0;i<hiddenitem.length;i++){
-      if(button[i].nextSibling == hiddenitem[i]){
-        console.log()
-        button[i].addEventListener("click",function(){finishHandling(i)});
-      }
-    }
-    function finishHandling(index){
-      timesclicked++;
-      console.log("CLICKS: "+timesclicked + "index: "+index);
-      if (timesclicked % 2==0 && timesclicked>0){
-        console.log(button[i]);
-        hiddenitem[].classList.add("hidden");
-      }else{
-        hiddenitem[0].classList.remove("hidden");
-      }
-      
-
-    }
-}
-*/
-
 function toggle(items){
-  items.forEach(function(items){
+  
+  items.forEach(function(items){ 
+      var toggleTitle = items.getAttribute("toggle");
       button = document.createElement('button');
-      button.innerHTML = 'BUTTON BUTTON BUTTON';
-      button.className += 'responsivejsbutton';
+      button.innerHTML = toggleTitle;
+      button.className += 'responsivejsbutton button-left';
       items.insertAdjacentElement('beforebegin',button);
       items.style.transition  = "0.5s";
       items.classList.add("hidden");
       var nextItem = button.nextSibling;
       button.addEventListener("click",function(){toggleHandler(nextItem)});
-  });
-    /*for (var i=0;i<items.length;i++){
-      button = document.createElement('button');
-      button.innerHTML = 'BUTTON BUTTON BUTTON';
-      button.className += 'responsivejsbutton';
-      items[i].insertAdjacentElement('beforebegin',button);
-      items[i].style.transition  = "0.5s";
-      items[i].style.display  = "none";
-    }*/
-   
+  });   
 }
 
 function toggleHandler(hiddenitem){
-  console.log(hiddenitem);
   if(hiddenitem.classList.contains("hidden")){
     hiddenitem.classList.remove("hidden");
   }else{
@@ -165,5 +113,38 @@ function toggleHandler(hiddenitem){
   }
 }
 
+function modals(){
+  var modalOpeners = $('[openmodal]');
+  var modalIds = $('[modal]');
+
+
+  if (modalOpeners.length == modalIds.length && modalOpeners.length>0 && modalIds.length>0){
+    console.log("MODAL CHECK OKAY!");
+    modalsHandler(modalOpeners,modalIds);
+  }else{
+    console.log("Warning: some error ocured with the modals system,check your code");
+  }
+}
+
+function modalsHandler(open,ids){
+  var openValue;
+  var modalId;
+  open.forEach(function(open,ids){
+    open.addEventListener("click",function(){
+      console.log(open);
+      modalExecution(open);
+    });
+  });
+  ids.forEach(function(ids){
+    modalId=ids.getAttribute("modal");
+  });
+}
+
+function modalExecution(open){
+  var openValue = open.getAttribute("openmodal");
+  var element = $('[modal='+openValue+']');
+  element[0].classList.remove("hidden");
+  element[0].classList.add("open");
+}
 
 //*ADD MODALS!!!*//

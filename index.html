@@ -44,16 +44,33 @@
         }
         .responsivejsbutton{
            width: 100%;
-           border-top:none;
+           background-color: #ddd;
+           border-top:1px solid #000;
+           border-bottom: 1px solid #000;
            border-left:none;
            border-right:none;
-           border-botton: 1px solid #000;
            margin-bottom: 10px;
            outline: 0 !important;
+        }
+        .button-left{
+          text-align: left;
         }
         .hidden{
           display: none;
           height: 0px;
+        }
+
+        .modal-window{
+          position: fixed;
+          top:25%;
+          background-color: #000;
+          color: #fff;
+          width: 300px;
+          max-height: 350px;
+          overflow: scroll;
+          padding:15px;
+          left: 50%;
+          transform: translate(-50%, 0);
         }
 
         /*.responsivejsbutton:focus{
@@ -70,44 +87,75 @@
  </div>
   <div class="container" style="text-align: center">
       <div class="row">
-          <div id="absolute" class="col-4 border" reduce="iphone678plus 100%">This is the first column-4</div>
-          <div id="alpha" class="col-4 border" reduce="iphone678plus 100%">This is the second column-4</div>
+          <div id="absolute" class="col-4 border" reduce="iphone678plus 100%"><button class="button-left" openmodal="modal5">OPEN MODAL 5 WINDOW</button></div>
+          <div id="alpha" class="col-4 border" reduce="iphone678plus 100%"><button class="button-left" openmodal="modal1">OPEN MODAL 1 WINDOW</button> </div>
           <div id="beta" class="col-4 border" reduce="iphone678plus 100%">This is the third column-4</div>
-          <div id="gamma" class="col-4 border" reduce="iphone678plus 100%">This is the fourth column-4</div>
+          <div id="gamma" class="col-4 border" reduce="iphone678plus 100%"><button class="button-left" openmodal="modal2">OPEN MODAL 2 WINDOW</button></div>
       </div>
       <div class="row" disappear="iphone678plus">
-          <div class="col-3 border">This is the first column-3</div>
-          <div class="col-3 border">This is the second column-3</div>
-          <div class="col-3 border">This is the third column-3</div>
+          <div class="col-3 border" reduce="600 100%">This is the first column-3</div>
+          <div class="col-3 border" reduce="600 100%">This is the second column-3</div>
+          <div class="col-3 border" reduce="600 100%">This is the third column-3</div>
       </div>
       <div class="row" disappear="iphone5">
           <div class="col-2 border" reduce="iphone678plus 100%">This is the first column-2</div>
           <div class="col-2 border" reduce="iphone678plus 100%">This is the second column-2</div>
       </div>
-      <div class="row" toggle>
+      <div class="row" toggle="Click here!">
           <div class="col-1 border" reduce="iphone678plus 50%">This is first col-1</div>
           <div class="col-1 border" reduce="iphone678plus 50%">This is second col-1</div>
       </div>
       <div class="row">
-        <div class="col-1 border" toggle reduce="iphone678plus 50%">
+        <div class="col-1 border" toggle="Click here for more!">
           This is a toggleable element 1
         </div>
         <div class="row">
-          <div class="col-1 border" toggle reduce="iphone678plus 50%">
+          <div class="col-1 border" toggle="And you'll get more here" reduce="iphone678plus 50%">
             This is a toggleable element 2
           </div>
       </div>
       <div class="row">
-          <div class="col-1 border" toggle reduce="iphone678plus 50%">
-            This is a toggleable element 3
+          <div class="col-1 border" toggle="There's a modal inside" reduce="iphone678plus 50%">
+            <button class="button-left" openmodal="modal3">OPEN MODAL 3 WINDOW</button> </div>
           </div>
       </div>
       <div class="row">
-          <div class="col-1 border" toggle reduce="iphone678plus 50%">
+          <div class="col-1 border" toggle="Last click! I swear" reduce="iphone678plus 50%">
             This is a toggleable element 4
           </div>
-      </div>
+      </div>   
   </div>
+  </div>
+
+  <div class="modal-window hidden" modal="modal1">
+      <h1>hello this is a modal 1 window</h1>
+      <h1>hello this is a modal 1 window</h1>
+      <h1>hello this is a modal 1 window</h1>
+      <h1>hello this is a modal 1 window</h1>
+  </div>
+
+    <div class="modal-window hidden" modal="modal2">
+      <h1>hello this is a modal 2 window</h1>
+      <h1>hello this is a modal 2 window</h1>
+      <h1>hello this is a modal 2 window</h1>
+      <h1>hello this is a modal 2 window</h1>
+  </div>
+
+     <div class="modal-window hidden" modal="modal5">
+      <h1>hello this is a modal 5 window</h1>
+      <h1>hello this is a modal 5 window</h1>
+      <h1>hello this is a modal 5 window</h1>
+      <h1>hello this is a modal 5 window</h1>
+  </div>
+
+  <div class="modal-window hidden" modal="modal3">
+      <h1>hello this is a modal 3 window</h1>
+      <h1>hello this is a modal 3 window</h1>
+      <h1>hello this is a modal 3 window</h1>
+      <h1>hello this is a modal 3 window</h1>
+  </div>
+
+
 </body>
 
 </html>
